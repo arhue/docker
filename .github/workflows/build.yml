@@ -2,7 +2,7 @@ name: Build images
 run-name: Build Docker images
 on: [push]
 jobs:
-  build-and-publish-docker:
+  caddy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
@@ -15,3 +15,4 @@ jobs:
               github-token: ${{ secrets.GITHUB_TOKEN }}
               image-name: caddy
               build-context: ./caddy
+              custom-args: --platform=linux/arm64,linux/amd64
